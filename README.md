@@ -1,6 +1,3 @@
-# django-authenticated-todo-app
-django-authenticated-todo-app
-
 # Django Authtenticated Todo App
 
 # Download and use
