@@ -8,7 +8,7 @@ django-authenticated-todo-app
 Let's go to the desktop and create a folder, for example *app*.
 
 # Then, let's enter the folder we created with the terminal. And type in terminal
-	git clone https://github.com/yigit1232/django-authenticated-todo-app
+	git clone https://github.com/yigit1232/django-authenticated-todo-app .
 
 
 	
