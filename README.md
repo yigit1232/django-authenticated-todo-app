@@ -13,7 +13,7 @@ Let's go to the desktop and create a folder, for example *app*.
 
 	
 
-then we can run it by saying
+# then we can run it by saying
 	python manage.py runserver
 	
 
