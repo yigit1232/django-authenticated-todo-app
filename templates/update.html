@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block title %}
+Update
+{% endblock %}
+
+{% block body %}
+    <div class="card" style="width: 34rem;">
+        <div class="card-body">
+            <h5 class="card-title border-bottom pb-3">Django-todo Update</h5>
+        {% if error %}
+           <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+        {% endif %}
+            <p class="card-text">
+            <p class="text-muted">Edit: {{ data.todo }} </p>
+              <form action="" class="mt-4" method="POST">
+                  {% csrf_token %}
+                 {{ form.todo }}
+            <button type="submit" class="btn btn-success form-control mt-3 rounded-end">Update</button>
+            </form>
+            </p>
+        </div>
+    </div>
+{% endblock %}

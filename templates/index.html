@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+    <div class="card" style="width: 34rem;">
+        <div class="card-body">
+            <h5 class="card-title border-bottom pb-3">Django-todo list</h5>
+        {% if error %}
+           <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+        {% endif %}
+            <p class="card-text">
+            <form action="/" class="d-flex" method="GET">
+            <input type="search" name="q" placeholder="Seach task..." class="form-control rounded-0 rounded-start">
+            <button type="submit" class="btn btn-primary rounded-0 w-25 rounded-end">Search </button>
+            </form>
+              <form action="/" class="d-flex mt-4" method="POST">
+                  {% csrf_token %}
+                    {{ form.todo }}
+            <button type="submit" class="btn btn-success rounded-0 w-25 rounded-end">Add</button>
+            </form>
+
+            </p>
+                {% if q %}
+                    {% if count == 0 %}
+                        <div class="alert alert-danger">
+                       {{ count }} results for {{ q }}
+                       </div>
+                        {% else %}
+                        <div class="alert alert-success">
+                       {{ count }} results for {{ q }}
+                       </div>
+                    {% endif %}
+
+                {% endif %}
+            <ul class="list-group mt-5">
+                {% for i in data %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ i.todo }}
+                  <div><span class="text-primary">{{ i.author }}</span></div>
+              {% if i.author.id == user.id %}
+                  <div>
+                      <a href="/delete/{{ i.id }}/" class="btn btn-danger btn-sm">Delete</a>
+                      <a href="/update/{{ i.id }}/" class="btn btn-success btn-sm">Edit</a>
+                  </div>
+                  {% else %}
+                  <div><span class="text-danger">not yours</span></div>
+              {% endif %}
+
+              </li>
+                 {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
