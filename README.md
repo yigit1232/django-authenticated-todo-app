@@ -1,4 +1,4 @@
-# Django Authtenticated Todo App
+# Django Authentication Todo App
 
 # Download and use
 	
